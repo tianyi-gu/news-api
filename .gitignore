@@ -1,7 +1,3 @@
-# Ignore everything in models directory
-models/
-models/*
-
 # Python
 __pycache__/
 *.py[cod]
@@ -37,14 +33,6 @@ ENV/
 *.swo
 .DS_Store
 
-# Elastic Beanstalk
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
-
-# AWS
-.aws/
-
 # Logs
 *.log
 logs/
@@ -58,15 +46,14 @@ logs/
 # MongoDB
 *.mongodb
 
+# Models directory
+models/
+models/*
+
 # Temp files
 *.tmp
 .temp/
 temp/
-
 # text newspaper articles
 archive_texts/
 archive_texts/*
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml

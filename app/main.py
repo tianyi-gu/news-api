@@ -1,6 +1,5 @@
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from mangum import Mangum
 from pymongo import MongoClient
 from datetime import datetime
 import os
@@ -19,7 +18,7 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with your frontend URL
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -122,9 +121,6 @@ async def query_articles(query: str):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-# Add handler for AWS Lambda
-handler = Mangum(app)
 
 # Only run the server directly in development
 if __name__ == "__main__":
