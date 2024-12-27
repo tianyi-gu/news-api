@@ -11,6 +11,7 @@
    ```
 
 
+#localmodel.py is a test python code to run the backend service here locally
 
 # notes to myself during the development
 (RAG + openai)
@@ -220,3 +221,10 @@ Get your connection string:
 Update your project:
 First, install the required packages:
 pip install pymongo dnspython haystack-ai
+
+1. Before deploying:
+Create a text index in MongoDB for search functionality:
+# Run this once in MongoDB Atlas or via script
+collection.create_index([("content", "text"), ("title", "text")])
+2. Set environment variables in Elastic Beanstalk:
+ eb create news-api-env --single --instance-type t2.micro --platform "Python 3.11 running on 64bit Amazon Linux 2023" --region us-east-1
